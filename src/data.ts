@@ -1,7 +1,17 @@
 import type { Post } from './types';
 
 export const posts: Post[] = [
-    // --- 2026 年最新资源 (课程资料 & 技术探索) ---
+    {
+        id: 20260123,
+        title: "从LeetCode1219与3459看：什么时候dp成立？",
+        excerpt: "通过对于力扣1219和3459的详细分析，探讨什么时候dp是合适的，什么时候dp不合适",
+        date: "2026-01-23",
+        category: "技术探索",
+        tags: ["算法", "Java"],
+        readTime: "15min",
+        type: 'pdf',
+        fileUrl: '/papers/dp什么时候成立.pdf'
+    },
     {
         id: 20260110,
         title: "图论算法Kruskal、Prim与Dijkstra详细解析",
