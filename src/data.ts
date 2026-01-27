@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260127,
+        title: "如何学习各种大型框架？—— FUP(finite understanding protocol)",
+        excerpt: "希望通过“有限理解协议”来建立一种可以在有限窗口期当中高效学习各种大型框架（如libGDX, React, Spring）的方法论",
+        date: "2026-01-27",
+        category: "日常思考",
+        tags: ["方法", "框架"],
+        readTime: "8min",
+        type: 'pdf',
+        fileUrl: '/papers/一种个人学习方法论——FUP.pdf'
+    },
+    {
         id: 20260123,
         title: "从LeetCode1219与3459看：什么时候dp成立？",
         excerpt: "通过对于力扣1219和3459的详细分析，探讨什么时候dp是合适的，什么时候dp不合适",
