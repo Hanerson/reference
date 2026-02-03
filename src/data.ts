@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260202,
+        title: "libGDX的设计哲学以及软件工程实践",
+        excerpt: "记录第一次与游戏引擎——libGDX的通力合作",
+        date: "2026-02-02",
+        category: "技术探索",
+        tags: ["方法", "框架"],
+        readTime: "10min",
+        type: 'pdf',
+        fileUrl: '/papers/libGDX的开发哲学与项目实践.pdf'
+    },
+    {
         id: 20260127,
         title: "如何学习各种大型框架？—— FUP(finite understanding protocol)",
         excerpt: "希望通过“有限理解协议”来建立一种可以在有限窗口期当中高效学习各种大型框架（如libGDX, React, Spring）的方法论",
