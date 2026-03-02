@@ -2,6 +2,47 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 400,
+        type: 'folder',
+        title: "operating system 复习讲义",
+        date: "2026-03-02",
+        category: "课程资料",
+        readTime: "FOLDER",
+        tags: ["操作系统", "CS基础"],
+        children: [
+            ...[
+                { id: 40001, title: "01.概述", file: "01-intro.pdf" },
+                { id: 40002, title: "21.处理器", file: "021-processor.pdf" },
+                { id: 40003, title: "22.中断机制", file: "022-interruption.pdf" },
+                { id: 40004, title: "23.进程管理", file: "023-process-management.pdf" },
+                { id: 40005, title: "24.多线程技术", file: "024-multithreading.pdf" },
+                { id: 40006, title: "25.进程调度", file: "025-process-scheduling.pdf" },
+                { id: 40007, title: "31.存储管理基础", file: "031-storage-management.pdf" },
+                { id: 40008, title: "32.分页存储管理", file: "032-paged-storage-management.pdf" },
+                { id: 40009, title: "33.分段存储管理", file: "033-segmental-storage-management.pdf" },
+                { id: 40010, title: "41.设备管理基础", file: "041-device-management.pdf" },
+                { id: 40011, title: "42.设备概述", file: "042-devices.pdf" },
+                { id: 40012, title: "43.虚拟设备", file: "043-virtual-devices.pdf" },
+                { id: 40013, title: "51.文件系统基础", file: "051-file-system.pdf" },
+                { id: 40014, title: "52.Linux 文件系统", file: "052-fs-in-linux.pdf" },
+                { id: 40015, title: "61.并发程序设计", file: "061-concurrent-program.pdf" },
+                { id: 40016, title: "62.信号量机制", file: "062-semaphore.pdf" },
+                { id: 40017, title: "63.信号量经典问题", file: "063-semaphore-problems.pdf" },
+                { id: 40018, title: "90.操作系统总复习", file: "90-final.pdf" }
+            ].map(item => ({
+                id: item.id,
+                title: item.title,
+                excerpt: "",
+                date: "2026-03-02",
+                category: "课程资料" as const,
+                tags: ["讲义", "操作系统"],
+                readTime: "5min",
+                type: 'pdf' as const,
+                fileUrl: `/papers/OS/${item.file}`
+            }))
+        ]
+    },
+    {
         id: 20260202,
         title: "libGDX的设计哲学以及软件工程实践",
         excerpt: "记录第一次与游戏引擎——libGDX的通力合作",
@@ -136,7 +177,7 @@ export const posts: Post[] = [
                 children: Array.from({ length: 10 }, (_, i) => ({
                     id: 8009901 + i,
                     title: `COA 作业 ${i + 1}`,
-                    excerpt: `计算机组成原理第${i + 1}次作业`,
+                    excerpt: ``,
                     date: "2026-01-02",
                     category: "课程资料" as const,
                     tags: ["作业", "计组"],
@@ -167,7 +208,7 @@ export const posts: Post[] = [
             ].map(item => ({
                 id: item.id,
                 title: item.title,
-                excerpt: "COA 课程核心讲义内容。",
+                excerpt: "",
                 date: "2026-01-02",
                 category: "课程资料" as const,
                 tags: ["讲义", "计组"],
