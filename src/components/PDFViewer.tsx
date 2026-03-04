@@ -1,67 +1,74 @@
-// src/components/PDFViewer.tsx
-import React, { useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React, { useState, useEffect } from 'react';
 
-// 修正后的 CSS 引用路径
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-
-// 建议使用固定的 CDN 地址，确保 Worker 加载稳定
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
-
-interface PDFViewerProps {
+interface NativePDFViewerProps {
     fileUrl: string;
+    title?: string;
 }
 
-const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
-    const [numPages, setNumPages] = useState<number | null>(null);
+const NativePDFViewer: React.FC<NativePDFViewerProps> = ({
+                                                             fileUrl,
+                                                             title = "Document Preview"
+                                                         }) => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [, setHasError] = useState(false);
 
-    function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-        setNumPages(numPages);
-    }
+    // 处理 PDF URL，确保如果是相对路径能正确解析
+    const fullUrl = fileUrl.startsWith('http')
+        ? fileUrl
+        : `${window.location.origin}${fileUrl}`;
+
+    // 处理加载状态超时，如果 10秒 还没加载出来，可能触发了某些浏览器的拦截
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
-        <div className="flex flex-col items-center bg-slate-50/50 rounded-2xl p-2 md:p-8">
-            <Document
-                file={fileUrl}
-                onLoadSuccess={onDocumentLoadSuccess}
-                loading={
-                    <div className="font-mono text-[10px] text-slate-400 py-20 flex flex-col items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-                        <span>SYNCING_DOCUMENT_STREAM...</span>
-                    </div>
-                }
-                error={
-                    <div className="font-mono text-xs text-red-400 py-10">
-                        FAILED_TO_LOAD_PDF_DATA
-                    </div>
-                }
-                className="flex flex-col gap-6 w-full items-center"
+        <div className="relative w-full h-[85vh] bg-slate-100 rounded-xl overflow-hidden shadow-inner border border-slate-200">
+            {/* 加载状态指示器 */}
+            {isLoading && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-50">
+                    <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <p className="text-slate-500 font-mono text-sm tracking-widest">INITIALIZING_NATIVE_RENDERER...</p>
+                </div>
+            )}
+
+            {/* 核心渲染区域：使用 Object 标签直接触发系统插件 */}
+            <object
+                data={`${fullUrl}#toolbar=1&navpanes=0&scrollbar=1`}
+                type="application/pdf"
+                className="w-full h-full"
+                onLoad={() => setIsLoading(false)}
+                onError={() => setHasError(true)}
             >
-                {/* 连续渲染逻辑 */}
-                {Array.from(new Array(numPages), (_, index) => (
-                    <div
-                        key={`page_${index + 1}`}
-                        className="w-full flex flex-col items-center group"
-                    >
-                        <div className="shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 rounded-sm overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
-                            <Page
-                                pageNumber={index + 1}
-                                // 自动适配屏幕宽度，减去 padding 空间
-                                width={Math.min(window.innerWidth - 64, 960)}
-                                renderAnnotationLayer={true}
-                                renderTextLayer={true}
-                            />
-                        </div>
-                        {/* 页面索引指示器 */}
-                        <div className="mt-4 font-mono text-[9px] text-slate-300 tracking-[0.2em] group-hover:text-indigo-400 transition-colors">
-                            SECTION_DEPT_{String(index + 1).padStart(2, '0')}
+                {/* 降级方案 1: iframe */}
+                <iframe
+                    src={`${fullUrl}#toolbar=1`}
+                    className="w-full h-full border-none"
+                    title={title}
+                >
+                    {/* 降级方案 2: 兜底按钮（针对极老旧平板） */}
+                    <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+                        <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
+                            <div className="text-red-400 mb-4 text-4xl">⚠️</div>
+                            <h3 className="text-slate-800 font-bold mb-2">无法直接预览</h3>
+                            <p className="text-slate-500 text-sm mb-6">
+                                当前安卓系统浏览器内核版本过低，<br/>请点击下方按钮调用系统阅读器打开。
+                            </p>
+                            <a
+                                href={fullUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full font-medium transition-all transform active:scale-95"
+                            >
+                                使用本地应用查看
+                            </a>
                         </div>
                     </div>
-                ))}
-            </Document>
+                </iframe>
+            </object>
         </div>
     );
 };
 
-export default PDFViewer;
+export default NativePDFViewer;
