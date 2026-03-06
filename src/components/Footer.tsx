@@ -1,48 +1,69 @@
-// src/components/Footer.tsx
 import React from 'react';
-import { Github, Cpu, Activity } from 'lucide-react';
+import { ArrowUpRight, Globe } from 'lucide-react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-white border-t border-slate-50 pt-16 pb-12 mt-auto px-6">
-            <div className="max-w-4xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
-                    {/* 左侧：个人标识与技术栈 */}
-                    <div className="space-y-4">
-                        <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-800 uppercase tracking-tighter">
-                            <Activity size={14} className="text-green-500" />
-                            <span>System Status: Online</span>
+        <footer className="bg-[#f8f8f7] border-t border-black/[0.03] pt-24 pb-12 px-8 md:px-12">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+
+                    {/* 左侧：品牌语与理念 */}
+                    <div className="lg:col-span-6 space-y-6">
+                        <div className="text-[14px] font-bold tracking-tighter text-black uppercase">
+                            Hanerson<span className="text-orange-500">.</span>
                         </div>
-                        <p className="text-xs text-slate-400 font-mono leading-relaxed max-w-xs">
-                            Built with React 18, Vite, and Tailwind CSS.
-                            Deployed on Vercel.
+                        <p className="text-[13px] text-black/40 font-serif italic max-w-sm leading-relaxed">
+                            A curated archive of thoughts on software architecture,
+                            minimalist design, and the intersection of human-computer interaction.
                         </p>
                     </div>
 
-                    {/* 右侧：社交链接 */}
-                    <div className="flex md:justify-end items-start gap-8">
-                        <div className="flex flex-col gap-2">
-                            <span className="font-mono text-[10px] text-slate-300 uppercase tracking-widest">Connect</span>
+                    {/* 中间：技术声明 (Colophon Style) */}
+                    <div className="lg:col-span-3 space-y-4">
+                        <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.2em]">Build Stack</span>
+                        <ul className="text-[12px] text-black/60 space-y-1 font-light">
+                            <li>React 18 / TypeScript</li>
+                            <li>Tailwind CSS / Framer Motion</li>
+                            <li>Vercel Deployment</li>
+                        </ul>
+                    </div>
+
+                    {/* 右侧：快速导航 */}
+                    <div className="lg:col-span-3 space-y-4 lg:text-right">
+                        <span className="text-[10px] font-bold text-black/20 uppercase tracking-[0.2em]">Network</span>
+                        <div className="flex flex-col lg:items-end gap-2 text-[12px]">
                             <a
                                 href="https://github.com/hanerson"
                                 target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-2 text-xs text-slate-500 hover:text-indigo-600 transition-colors font-mono"
+                                className="flex items-center gap-1.5 hover:text-orange-600 transition-colors"
                             >
-                                <Github size={14} /> github.com/hanerson
+                                GitHub <ArrowUpRight size={12} className="opacity-30" />
+                            </a>
+                            <a
+                                href="#"
+                                className="flex items-center gap-1.5 hover:text-orange-600 transition-colors"
+                            >
+                                RSS Feed <Globe size={12} className="opacity-30" />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                {/* 底部版权：等宽字体，像极了代码注释 */}
-                <div className="pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div className="font-mono text-[10px] text-slate-300">
-                        /** &copy; {new Date().getFullYear()} Hanerson. Powered by Reason. */
+                {/* 底部版权栏：极简的一行 */}
+                <div className="pt-8 border-t border-black/[0.05] flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="text-[11px] text-black/30 flex items-center gap-4">
+                        <span>© {new Date().getFullYear()} HANERSON HAO</span>
+                        <span className="w-1 h-1 rounded-full bg-black/10" />
+                        <span className="italic font-serif">Made in Nanjing</span>
                     </div>
-                    <div className="flex items-center gap-4 text-[10px] font-mono text-slate-300">
-                        <span className="flex items-center gap-1"><Cpu size={10} /> v2.4.0-stable</span>
-                        <span>LATENCY: 24ms</span>
+
+                    <div className="flex items-center gap-6">
+                        <button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="text-[10px] font-bold uppercase tracking-widest text-black/40 hover:text-black transition-colors"
+                        >
+                            Back to Top ↑
+                        </button>
                     </div>
                 </div>
             </div>

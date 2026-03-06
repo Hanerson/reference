@@ -1,168 +1,157 @@
-// src/pages/About.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-    Github, Code, Cpu, Terminal,
-    GraduationCap, BookOpen, Gamepad2,
-    Coffee, Heart, Globe, Award,
-    Fingerprint, ExternalLink, MapPin
-} from 'lucide-react';
+import {Github, Code, ArrowUpRight, MapPin, Compass,} from 'lucide-react';
 
 const About: React.FC = () => {
     const skills = [
         { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"] },
         { category: "Tools", items: ["Git", "Docker", "Webpack", "Vercel"] },
-        { category: "Others", items: ["Node.js", "UI/UX Design", "Algorithms (Competitive)"] }
+        { category: "Core", items: ["Node.js", "UI/UX Design", "Competitive Algorithms"] }
     ];
 
     const education = [
         {
-            school: "南京大学 (NJU)",
-            role: "软件工程 · 本科",
-            period: "2024.09 - PRESENT",
-            desc: "就读于软件学院。探索底层原理与现代架构，积极参与算法竞赛与开源项目实践。",
-            tags: ["Software Engineering", "Competitive Programming"]
+            school: "Nanjing University",
+            role: "Software Engineering · Bachelor",
+            period: "2024 - PRESENT",
+            desc: "Focusing on core system architecture and modern web engineering at the School of Software.",
+            tags: ["Algorithms", "System Design"]
         },
         {
-            school: "江苏省淮安中学",
-            role: "高级中学",
-            period: "2021.09 - 2024.06",
-            desc: "2024年高考淮安区状元 (江苏省第227名)。曾获数学奥赛省一等奖、物理省二等奖。2023年年度人物。",
-            tags: ["High School Hero", "Olympiad in Math"]
+            school: "Huai'an Middle School",
+            role: "Highest Honors Graduate",
+            period: "2021 - 2024",
+            desc: "District Champion of 2024 Gaokao (Ranked 227th in Jiangsu Province). Olympiad in Mathematics (Provincial First Prize).",
+            tags: ["High School Hero", "Math Olympiad"]
         }
     ];
 
-    const interests = [
-        { title: "Develop", icon: <Terminal size={14} />, desc: "追求代码的极致简洁与逻辑闭环。" },
-        { title: "Read", icon: <BookOpen size={14} />, desc: "在科幻与硬核技术书籍中寻找边界。" },
-        { title: "Coffee", icon: <Coffee size={14} />, desc: "逻辑引擎的燃料，手冲爱好者。" },
-        { title: "OpenSource", icon: <Globe size={14} />, desc: "相信代码开源是人类知识的共建。" }
-    ];
-
     return (
-        <div className="min-h-screen bg-white pt-32 pb-20 px-6 text-slate-900 font-sans">
-            <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                className="max-w-4xl mx-auto"
-            >
-                {/* --- Profile Header --- */}
-                <header className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20 border-b border-slate-100 pb-16">
-                    <div className="md:col-span-2">
-                        <div className="flex items-center gap-2 text-indigo-600 font-mono text-xs mb-4 tracking-tighter uppercase">
-                            <Fingerprint size={14} />
-                            <span>Subject_Profile_Initialization</span>
+        <div className="min-h-screen bg-[#f8f8f7] text-[#1a1a1a] selection:bg-black selection:text-white pb-32">
+
+            {/* --- Hero Section --- */}
+            <section className="pt-40 pb-24 px-8 md:px-12 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                    <div className="lg:col-span-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <h2 className="text-[11px] font-bold tracking-[0.3em] text-orange-600 uppercase mb-6">
+                                Introduction
+                            </h2>
+                            <h1 className="text-5xl md:text-7xl font-normal tracking-tight leading-[1.1] mb-8">
+                                I build <span className="italic font-serif underline decoration-black/5 underline-offset-8">digital systems</span> with logic and aesthetics.
+                            </h1>
+                        </motion.div>
+                    </div>
+                    <div className="lg:col-span-4 flex flex-col items-start lg:items-end border-l lg:border-l-0 lg:border-r border-black/5 pl-8 lg:pl-0 lg:pr-8 py-2">
+                        <div className="text-[13px] space-y-2 text-black/40 italic font-serif">
+                            <p className="flex items-center gap-2 not-italic font-sans text-black">
+                                <MapPin size={12} /> Nanjing, China
+                            </p>
+                            <p>Currently pursuing excellence at NJU.</p>
                         </div>
-                        <h1 className="text-5xl font-bold tracking-tighter mb-6">
-                            Hanerson <span className="text-slate-300">HAO</span>
-                        </h1>
-                        <p className="text-lg text-slate-500 max-w-lg leading-relaxed mb-8">
-                            南京大学软件学院在读。专注于 <span className="text-slate-900 font-semibold underline decoration-indigo-200 underline-offset-4">前端架构</span> 与 <span className="text-slate-900 font-semibold underline decoration-indigo-200 underline-offset-4">算法优化</span>。
-                            以理性的思维构建美学，以工程的严谨驱动体验。
+                    </div>
+                </div>
+            </section>
+
+            {/* --- Main Content Grid --- */}
+            <main className="px-8 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
+
+                {/* Left Side: Education & Story */}
+                <div className="lg:col-span-7 space-y-32">
+
+                    {/* Education */}
+                    <section>
+                        <div className="flex items-center gap-4 mb-12">
+                            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30">Academic Path</h3>
+                            <div className="flex-1 h-[1px] bg-black/5" />
+                        </div>
+                        <div className="space-y-16">
+                            {education.map((edu, i) => (
+                                <div key={i} className="group relative">
+                                    <div className="flex justify-between items-baseline mb-4">
+                                        <h4 className="text-2xl font-normal tracking-tight">{edu.school}</h4>
+                                        <span className="font-mono text-[10px] text-black/20">{edu.period}</span>
+                                    </div>
+                                    <p className="text-orange-600/80 text-[11px] font-bold uppercase tracking-widest mb-4">{edu.role}</p>
+                                    <p className="text-black/50 text-[15px] leading-relaxed max-w-xl mb-6 italic font-serif">
+                                        "{edu.desc}"
+                                    </p>
+                                    <div className="flex gap-4">
+                                        {edu.tags.map(tag => (
+                                            <span key={tag} className="text-[10px] text-black/20 font-medium">#{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Personal Philosophy */}
+                    <section className="bg-black text-[#f8f8f7] p-12 md:p-16 rounded-sm">
+                        <div className="flex items-center gap-4 mb-8 opacity-30">
+                            <Compass size={18} strokeWidth={1} />
+                            <span className="text-[10px] uppercase tracking-[0.3em]">Philosophy</span>
+                        </div>
+                        <p className="text-2xl md:text-3xl font-serif italic leading-snug">
+                            "Engineering is not just about writing code; it's about <span className="text-orange-400">architecting thought</span> and reducing entropy in a chaotic world."
                         </p>
-                        <div className="flex flex-wrap gap-4">
-                            <a href="https://github.com/hanerson" target="_blank" className="flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded text-xs font-mono hover:bg-slate-800 transition-all">
-                                <Github size={14} /> GITHUB_REPO
+                    </section>
+                </div>
+
+                {/* Right Side: Skills & Links */}
+                <div className="lg:col-span-5 space-y-24">
+
+                    {/* Technical Stack - 紧凑列表样式 */}
+                    <section>
+                        <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30 mb-10">Capabilities</h3>
+                        <div className="space-y-10">
+                            {skills.map((skill, i) => (
+                                <div key={i} className="border-b border-black/[0.03] pb-6 hover:border-black/10 transition-colors group">
+                                    <h4 className="text-[10px] font-bold text-orange-600/60 uppercase mb-4 tracking-tighter">{skill.category}</h4>
+                                    <div className="flex flex-wrap gap-x-6 gap-y-3">
+                                        {skill.items.map(item => (
+                                            <span key={item} className="text-base font-normal text-black/70 group-hover:text-black transition-colors">
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Digital Presence */}
+                    <section className="space-y-6 pt-12 border-t border-black/5">
+                        <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/30">Connect</h3>
+                        <div className="grid grid-cols-1 gap-4">
+                            <a href="https://github.com/hanerson" target="_blank" className="flex items-center justify-between p-4 bg-white hover:bg-black hover:text-white transition-all group">
+                                <div className="flex items-center gap-3">
+                                    <Github size={16} />
+                                    <span className="text-sm font-medium">GitHub Repository</span>
+                                </div>
+                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
-                            <a href="https://leetcode.cn/u/fu-guang-1e/" target="_blank" className="flex items-center gap-2 px-4 py-2 border border-slate-200 text-slate-600 rounded text-xs font-mono hover:bg-slate-50 transition-all">
-                                <Code size={14} /> LEETCODE_PROFILE
+                            <a href="https://leetcode.cn/u/fu-guang-1e/" target="_blank" className="flex items-center justify-between p-4 bg-white hover:bg-black hover:text-white transition-all group">
+                                <div className="flex items-center gap-3">
+                                    <Code size={16} />
+                                    <span className="text-sm font-medium">Algorithm Profile</span>
+                                </div>
+                                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                             </a>
                         </div>
-                    </div>
+                    </section>
+                </div>
+            </main>
 
-                    <div className="flex flex-col justify-end space-y-4 border-l border-slate-50 pl-8 font-mono text-[10px] text-slate-400">
-                        <div>
-                            <p className="text-slate-300 uppercase">Location</p>
-                            <p className="text-slate-600 flex items-center gap-1"><MapPin size={10} /> Nanjing, China</p>
-                        </div>
-                        <div>
-                            <p className="text-slate-300 uppercase">Status</p>
-                            <p className="text-slate-600 flex items-center gap-1"><ActivityIcon /> ACTIVE_LEARNING</p>
-                        </div>
-                        <div>
-                            <p className="text-slate-300 uppercase">Quote</p>
-                            <p className="text-slate-600 italic">"Stay hungry, stay rigorous."</p>
-                        </div>
-                    </div>
-                </header>
-
-                {/* --- Skills Grid --- */}
-                <section className="mb-24">
-                    <h2 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-                        <Cpu size={14} /> 01_Technical_Stack
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        {skills.map((skill, i) => (
-                            <div key={i} className="space-y-4">
-                                <h3 className="font-mono text-[10px] font-bold text-indigo-600 uppercase border-b border-indigo-50 pb-2">{skill.category}</h3>
-                                <div className="flex flex-wrap gap-x-4 gap-y-2">
-                                    {skill.items.map(item => (
-                                        <span key={item} className="text-sm font-medium text-slate-600 hover:text-indigo-600 cursor-default transition-colors">
-                                            {item}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* --- Education Timeline --- */}
-                <section className="mb-24">
-                    <h2 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-                        <GraduationCap size={14} /> 02_Education_Log
-                    </h2>
-                    <div className="space-y-12">
-                        {education.map((edu, i) => (
-                            <div key={i} className="relative pl-8 border-l border-slate-100 group">
-                                <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-slate-200 group-hover:bg-indigo-500 transition-colors" />
-                                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                                    <h3 className="text-xl font-bold text-slate-900">{edu.school}</h3>
-                                    <span className="font-mono text-[10px] text-slate-400 tracking-tighter">{edu.period}</span>
-                                </div>
-                                <div className="text-indigo-600 font-mono text-xs mb-4 uppercase tracking-wider">{edu.role}</div>
-                                <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mb-4">{edu.desc}</p>
-                                <div className="flex gap-3">
-                                    {edu.tags.map(tag => (
-                                        <span key={tag} className="text-[9px] font-mono text-slate-300 border border-slate-100 px-2 py-0.5 rounded">#{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* --- Interests --- */}
-                <section className="border-t border-slate-50 pt-20">
-                    <h2 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-[0.3em] mb-10 flex items-center gap-2">
-                        <Heart size={14} /> 03_Life_Interface
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        {interests.map((item, i) => (
-                            <div key={i} className="group">
-                                <div className="flex items-center gap-2 text-slate-900 font-bold mb-2 transition-transform group-hover:translate-x-1">
-                                    {item.icon} <span className="text-sm tracking-tight">{item.title}</span>
-                                </div>
-                                <p className="text-xs text-slate-400 leading-relaxed font-light">{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                <footer className="mt-32 text-center">
-                    <div className="inline-block px-6 py-2 border border-slate-100 rounded-full font-mono text-[10px] text-slate-300 uppercase tracking-widest">
-                        End_of_Transmission
-                    </div>
-                </footer>
-            </motion.div>
+            <footer className="mt-40 text-center opacity-20">
+                <p className="font-serif italic text-sm">Fin.</p>
+            </footer>
         </div>
     );
 };
-
-const ActivityIcon = () => (
-    <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-    </span>
-);
 
 export default About;

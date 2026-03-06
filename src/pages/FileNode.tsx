@@ -2,80 +2,90 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Post } from '../types';
-import { Hash, Folder, ChevronRight } from 'lucide-react';
+import { Plus, Minus, ArrowUpRight } from 'lucide-react';
 
 interface FileNodeProps {
     post: Post;
-    level: number; // 0, 1, 2
+    level: number;
 }
 
 const FileNode: React.FC<FileNodeProps> = ({ post, level }) => {
     const [isOpen, setIsOpen] = useState(false);
     const isFolder = post.type === 'folder';
 
-    // 基础缩进：每一层增加 24px
-    const paddingLeft = `${level * 24}px`;
+    // 减小缩进幅度，保持紧凑
+    const indentation = level > 0 ? { paddingLeft: `${level * 16}px` } : {};
 
     if (!isFolder) {
-        // --- 文件渲染逻辑 (保持你原有的 Home 列表样式) ---
         return (
             <motion.div
-                initial={{ opacity: 0, x: -5 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="group relative py-4 hover:bg-slate-50/50 transition-colors"
-                style={{ paddingLeft: `calc(${paddingLeft} + 24px)` }} // 补偿圆点位置
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                style={indentation}
+                className="group relative"
             >
-                {/* 时间轴小圆点 - 仅在第一层显示，或者根据需要调整 */}
-                <div className="absolute left-[-4.5px] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-slate-200 group-hover:bg-indigo-400 transition-colors border-2 border-white" />
-
-                <Link to={`/post/${post.id}`} className="flex flex-col md:flex-row md:items-baseline gap-4">
-                    <span className="font-mono text-[10px] text-slate-400 shrink-0 tracking-tighter">
-                        {post.date.replace(/-/g, '.')}
+                <Link
+                    to={`/post/${post.id}`}
+                    className="flex items-center gap-4 md:gap-8 py-4 border-b border-black/[0.03] hover:bg-black/[0.01] transition-all duration-300 px-2"
+                >
+                    {/* 日期：更小、更淡 */}
+                    <span className="font-mono text-[9px] text-black/20 w-10 shrink-0 tracking-tighter">
+                        {post.date.split('-').slice(1).join('.')}
                     </span>
-                    <h2 className="text-base font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors">
-                        {post.title}
-                    </h2>
-                    <div className="hidden md:flex items-center gap-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="flex items-center gap-1 text-[10px] font-mono text-slate-400">
-                            <Hash size={10} />{post.category}
+
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-3">
+                            {/* 标题：字号缩小到 xl，保持粗细适中 */}
+                            <h2 className="text-[15px] md:text-[17px] font-normal tracking-tight text-black/80 group-hover:text-black group-hover:translate-x-1 transition-all">
+                                {post.title}
+                            </h2>
+                            {/* 核心标签：紧凑展示 */}
+                            <span className="hidden md:inline text-[9px] font-bold uppercase tracking-widest text-orange-600/40">
+                                {post.category}
+                            </span>
+                        </div>
+                        {/* 摘要：限制高度，字号缩小 */}
+                        <p className="line-clamp-1 text-[12px] text-black/30 italic font-serif mt-0.5">
+                            { post.excerpt || "View details"}
+                        </p>
+                    </div>
+
+                    {/* 右侧元数据：常驻显示关键信息，Hover 显示箭头 */}
+                    <div className="flex items-center gap-4 shrink-0">
+                        <span className="hidden sm:block text-[10px] font-mono text-black/10 tabular-nums">
+                            {post.readTime}
                         </span>
-                        <span className="text-[10px] font-mono text-slate-300 uppercase">{post.readTime}</span>
+                        <ArrowUpRight
+                            size={14}
+                            className="text-black/0 group-hover:text-black/20 transition-all transform group-hover:translate-y-[-2px]"
+                        />
                     </div>
                 </Link>
-                {post.excerpt && (
-                    <p className="mt-1 text-sm text-slate-400 line-clamp-1 font-light leading-relaxed">
-                        {post.excerpt}
-                    </p>
-                )}
             </motion.div>
         );
     }
 
-    // --- 文件夹渲染逻辑 ---
+    // --- 文件夹渲染逻辑 (更紧凑的折叠层) ---
     return (
-        <div className="w-full">
-            <motion.div
+        <div className="w-full" style={indentation}>
+            <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="group relative py-4 flex items-center cursor-pointer border-b border-slate-50 hover:bg-slate-50/80 transition-all"
-                style={{ paddingLeft: `calc(${paddingLeft} + 12px)` }}
+                className="group py-3 flex items-center justify-between cursor-pointer border-b border-black/[0.06] hover:bg-black/[0.02] transition-colors px-2"
             >
-                {/* 文件夹小圆点改为 Folder 图标 */}
-                <div className="absolute left-[-4.5px] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-indigo-100 group-hover:bg-indigo-500 transition-colors border-2 border-white" />
+                <div className="flex items-center gap-4">
+                    <span className="font-mono text-[10px] text-black/20 w-10 shrink-0 flex items-center justify-center">
+                        {isOpen ? <Minus size={10} /> : <Plus size={10} />}
+                    </span>
 
-                <div className={`mr-2 transition-transform ${isOpen ? 'rotate-90' : ''}`}>
-                    <ChevronRight size={14} className="text-slate-300" />
+                    <h3 className={`text-[14px] md:text-[15px] font-bold tracking-wide transition-all ${isOpen ? 'text-black' : 'text-black/40'}`}>
+                        {post.title}
+                    </h3>
+
+                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-sm bg-black/[0.03] text-black/20 uppercase tracking-tighter">
+                        {post.children?.length || 0}
+                    </span>
                 </div>
-
-                <Folder size={16} className={`mr-3 ${isOpen ? 'text-indigo-500 fill-indigo-50' : 'text-slate-400'}`} />
-
-                <h3 className={`text-base font-bold transition-colors ${isOpen ? 'text-slate-900' : 'text-slate-600'}`}>
-                    {post.title}
-                </h3>
-
-                <span className="ml-3 font-mono text-[9px] text-slate-300 uppercase tracking-widest">
-                    {post.children?.length || 0} ITEMS
-                </span>
-            </motion.div>
+            </div>
 
             <AnimatePresence>
                 {isOpen && post.children && (
@@ -83,7 +93,8 @@ const FileNode: React.FC<FileNodeProps> = ({ post, level }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden relative border-l border-slate-50 ml-[-1px]"
+                        transition={{ duration: 0.3, ease: "circOut" }}
+                        className="overflow-hidden border-l border-black/[0.03] ml-[25px]"
                     >
                         {post.children.map(child => (
                             <FileNode key={child.id} post={child} level={level + 1} />
