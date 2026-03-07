@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260307,
+        title: "二分查找在实际解题当中的运用",
+        excerpt: "通过几道LeetCode经典例题来解释二分查找的三种运用场景",
+        date: "2026-03-07",
+        category: "技术探索",
+        tags: ["方法","算法","二分"],
+        readTime: "10min",
+        type: 'pdf',
+        fileUrl: '/papers/BinarySearch 在实际解题当中的运用.pdf'
+    },
+    {
         id: 400,
         type: 'folder',
         title: "operating system 复习讲义",
