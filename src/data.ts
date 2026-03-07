@@ -2,17 +2,6 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
-        id: 20260307,
-        title: "二分查找在实际解题当中的运用",
-        excerpt: "通过几道LeetCode经典例题来解释二分查找的三种运用场景",
-        date: "2026-03-07",
-        category: "技术探索",
-        tags: ["方法","算法","二分"],
-        readTime: "10min",
-        type: 'pdf',
-        fileUrl: '/papers/BinarySearch 在实际解题当中的运用.pdf'
-    },
-    {
         id: 400,
         type: 'folder',
         title: "operating system 复习讲义",
@@ -234,7 +223,7 @@ export const posts: Post[] = [
     {
         id: 700,
         type: 'folder',
-        title: "数据库系统核心复习讲义",
+        title: "数据管理基础",
         date: "2026-01-01",
         category: "课程资料",
         readTime: "FOLDER",
@@ -249,22 +238,22 @@ export const posts: Post[] = [
                 readTime: "FOLDER",
                 tags: ["重点章节"],
                 children: [
-                    { id: 7009901, title: "视图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/视图.pdf', readTime: "20min" },
-                    { id: 7009902, title: "关系范式", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/关系范式.pdf', readTime: "20min" },
-                    { id: 7009903, title: "存取控制", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/存取控制.pdf', readTime: "20min" },
-                    { id: 7009904, title: "并发", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/并发.pdf', readTime: "20min" },
-                    { id: 7009905, title: "概念模型以及ER图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/ER图.pdf', readTime: "20min" },
-                    { id: 7009906, title: "数据库故障相关", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/故障.pdf', readTime: "20min" },
-                    { id: 7009907, title: "断言与触发器", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/触发器.pdf', readTime: "20min" },
-                    { id: 7009908, title: "NoSQL与仲裁", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库/NoSQL.pdf', readTime: "20min" },
+                    { id: 7009901, title: "视图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/视图.pdf', readTime: "20min" },
+                    { id: 7009902, title: "关系范式", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/关系范式.pdf', readTime: "20min" },
+                    { id: 7009903, title: "存取控制", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/存取控制.pdf', readTime: "20min" },
+                    { id: 7009904, title: "并发", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/并发.pdf', readTime: "20min" },
+                    { id: 7009905, title: "概念模型以及ER图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/概念模型以及ER图.pdf', readTime: "20min" },
+                    { id: 7009906, title: "数据库故障相关", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/数据库故障相关.pdf', readTime: "20min" },
+                    { id: 7009907, title: "断言与触发器", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/断言与触发器.pdf', readTime: "20min" },
+                    { id: 7009908, title: "NoSQL与仲裁", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/NoSQL与仲裁.pdf', readTime: "20min" },
                 ]
             },
-            { id: 70010, title: "数据库作业整合", date: "2026-01-04", category: "课程资料", tags: ["作业", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/作业.pdf', readTime: "20min" },
-            { id: 70009, title: "数据库个人笔记", date: "2026-01-04", category: "课程资料", tags: ["笔记", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/笔记.pdf', readTime: "20min" },
-            { id: 70008, title: "数据库课件章节导航", date: "2026-01-04", category: "课程资料", tags: ["导航", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/导航.pdf', readTime: "20min" },
-            { id: 70007, title: "数据库基础2023往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/2023.pdf', readTime: "5min" },
-            { id: 70006, title: "数据库基础2020往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/2020.pdf', readTime: "5min" },
-            { id: 70005, title: "数据库基础复习总指南", date: "2026-01-01", category: "课程资料", tags: ["复习指南", "数据库"], type: 'pdf', fileUrl: '/papers/数据库/复习指南.pdf', readTime: "5min" }
+            { id: 70010, title: "数据库作业整合", date: "2026-01-04", category: "课程资料", tags: ["作业", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/作业.pdf', readTime: "20min" },
+            { id: 70009, title: "数据库个人笔记", date: "2026-01-04", category: "课程资料", tags: ["笔记", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/笔记.pdf', readTime: "20min" },
+            { id: 70008, title: "数据库课件章节导航", date: "2026-01-04", category: "课程资料", tags: ["导航", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/导航.pdf', readTime: "20min" },
+            { id: 70007, title: "数据库基础2023往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2023.pdf', readTime: "5min" },
+            { id: 70006, title: "数据库基础2020往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2020.pdf', readTime: "5min" },
+            { id: 70005, title: "数据库基础复习总指南", date: "2026-01-01", category: "课程资料", tags: ["复习指南", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/复习指南.pdf', readTime: "5min" }
         ]
     },
     {
@@ -288,5 +277,36 @@ export const posts: Post[] = [
         readTime: "28min",
         type: 'pdf',
         fileUrl: '/papers/Cream.pdf'
+    },
+    {
+        id: 101,
+        type: 'folder',
+        title: "计算系统基础",
+        date: "2025-06-07",
+        category: "课程资料",
+        readTime: "FOLDER",
+        tags: ["计算系统", "CS基础", "计算机组成原理"],
+        children: [
+            ...[
+                { id: 10101, title: "c1 计算系统概述", file: "c1计算系统概述.pdf" },
+                { id: 10102, title: "c2 数据的机器级表示-1", file: "c2 数据的机器级表示-1.pdf" },
+                { id: 10103, title: "c3 数据的机器级表示-2", file: "c3 数据的机器级表示-2.pdf" },
+                { id: 10104, title: "c4 数据的运算", file: "c4 数据的运算.pdf" },
+                { id: 10105, title: "c5 数字逻辑电路", file: "c5 数字逻辑电路.pdf" },
+                { id: 10106, title: "c6 dlx系统", file: "c6 dlx系统.pdf" },
+                { id: 10107, title: "c7 指令集架构", file: "c7 指令集架构.pdf" },
+                { id: 10108, title: "c9 汇编语言", file: "c9 汇编语言.pdf" }
+            ].map(item => ({
+                id: item.id,
+                title: item.title,
+                excerpt: "",
+                date: "2025-06-07",
+                category: "课程资料" as const,
+                tags: ["讲义", "计算系统基础"],
+                readTime: "5min",
+                type: 'pdf' as const,
+                fileUrl: `/papers/计算系统基础/${item.file}`
+            }))
+        ]
     }
 ];
