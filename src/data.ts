@@ -2,6 +2,40 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 103,
+        type: 'folder',
+        title: "BusinessIntel",
+        date: "2026-03-09",
+        category: "课程资料",
+        readTime: "FOLDER",
+        tags: ["商业智能"],
+        children: [
+            ...[
+                { id: 10301, title: "01 Business Intelligence", file: "01 Business Intelligence.pdf" },
+                { id: 10302, title: "02 Data Warehouse 1", file: "02 Data Warehouse 1.pdf" },
+                { id: 10303, title: "03 Data Warehouse 2", file: "03 Data Warehouse 2.pdf" },
+                { id: 10304, title: "04 Data Warehouse 3", file: "04 Data Warehouse 3.pdf" },
+                { id: 10305, title: "05 OLAP", file: "05 OLAP.pdf" },
+                { id: 10306, title: "06 Design of Data Warehouse", file: "06 Design of Data Warehouse.pdf" },
+                { id: 10307, title: "07 Dimensional Modeling 1", file: "07 Dimensional Modeling 1.pdf" },
+                { id: 10308, title: "08 Dimensional Modeling 2", file: "08 Dimensional Modeling 2.pdf" },
+                { id: 10309, title: "09 Dimensional Modeling 3", file: "09 Dimensional Modeling 3.pdf" },
+                { id: 10310, title: "10 Dimensional Modeling 4", file: "10 Dimensional Modeling 4.pdf" },
+                { id: 10311, title: "11 Data Mining", file: "11 Data Mining.pdf" }
+            ].map(item => ({
+                id: item.id,
+                title: item.title,
+                excerpt: "",
+                date: "2026-03-09",
+                category: "课程资料" as const,
+                tags: ["商业智能", "数据仓库", "数据挖掘"],
+                readTime: "15min",
+                type: 'pdf' as const,
+                fileUrl: `/papers/BusinessIntel/${item.file}`
+            }))
+        ]
+    },
+    {
         id: 400,
         type: 'folder',
         title: "operating system 复习讲义",
