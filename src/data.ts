@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260309,
+        title: "二分查找在实际解题当中的运用",
+        excerpt: "在各类隐含单调元素范围的题目当中合理的使用二分查找提高算法效率",
+        date: "2026-03-09",
+        category: "技术探索",
+        tags: ["算法", "二分"],
+        readTime: "8min",
+        type: 'pdf',
+        fileUrl: '/papers/BinarySearch 在实际解题当中的运用.pdf'
+    },
+    {
         id: 103,
         type: 'folder',
         title: "BusinessIntel",
