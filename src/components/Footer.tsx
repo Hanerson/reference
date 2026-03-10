@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Globe } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
     return (
@@ -38,12 +38,6 @@ const Footer: React.FC = () => {
                                 className="flex items-center gap-1.5 hover:text-orange-600 transition-colors"
                             >
                                 GitHub <ArrowUpRight size={12} className="opacity-30" />
-                            </a>
-                            <a
-                                href="#"
-                                className="flex items-center gap-1.5 hover:text-orange-600 transition-colors"
-                            >
-                                RSS Feed <Globe size={12} className="opacity-30" />
                             </a>
                         </div>
                     </div>

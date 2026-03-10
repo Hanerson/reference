@@ -5,6 +5,7 @@ import { Post, CATEGORY_CONFIG } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ArrowUpRight } from 'lucide-react';
 import FileNode from './FileNode';
+import TaskStack from '../components/TaskStack'
 
 const Home: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -93,11 +94,14 @@ const Home: React.FC = () => {
                         <h2 className="text-[12px] uppercase tracking-[0.3em] text-black/30 mb-4 font-semibold">
                             {selectedCategory} / {displayPosts.length} Entries
                         </h2>
-                        <h1 className="text-4xl md:text-6xl font-light leading-[1.1] tracking-tight text-black">
-                            Make steady progress.
+                        <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-black flex items-baseline gap-3">
+                            <span className="font-serif italic text-black/40">Infinite</span>
+                            <span>Progress.</span>
                         </h1>
                     </motion.div>
                 </header>
+
+                <TaskStack/>
 
                 {/* 列表区域：放弃所有卡片背景，使用纯净的行级排版 */}
                 <div className="grid grid-cols-1 gap-x-20">
