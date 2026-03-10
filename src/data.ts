@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260310,
+        title: "前缀和以及差分",
+        excerpt: "详细分析前缀和数组以及差分数组的真正含义以及实际用途",
+        date: "2026-03-10",
+        category: "技术探索",
+        tags: ["算法", "前缀和", "差分"],
+        readTime: "10min",
+        type: 'pdf',
+        fileUrl: '/papers/前缀和以及差分.pdf'
+    },
+    {
         id: 20260309,
         title: "二分查找在实际解题当中的运用",
         excerpt: "在各类隐含单调元素范围的题目当中合理的使用二分查找提高算法效率",
