@@ -5,7 +5,8 @@ const TaskStack: React.FC = () => {
     // 模拟多线程任务数据
     const tasks = [
         { title: "红黑树底层逻辑分析以及Java实现", progress: 68, category: "数据结构", status: "撰写中" },
-        { title: "详解滑动窗口", progress: 2, category: "算法", status: "准备中" },
+        { title: "详解滑动窗口", progress: 50, category: "算法", status: "准备中" },
+        { title: "使用LeetCode2528.来进一步详解差分数组以及答案二分", progress: 34, category: "算法", status: "准备中" },
     ];
 
     return (

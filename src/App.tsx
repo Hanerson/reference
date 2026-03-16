@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import BlogPost from './pages/BlogPost';
 import About from './pages/About';
+
 import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
