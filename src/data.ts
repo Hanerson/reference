@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260319,
+        title: "滑动窗口",
+        excerpt: "使用LeetCode370来探讨滑动窗口方法设计的核心逻辑以及一般使用方法",
+        date: "2026-03-19",
+        category: "技术探索",
+        tags: ["算法", "滑动窗口"],
+        readTime: "5min",
+        type: 'pdf',
+        fileUrl: '/papers/滑动窗口.pdf'
+    },
+    {
         id: 20260310,
         title: "前缀和以及差分",
         excerpt: "详细分析前缀和数组以及差分数组的真正含义以及实际用途",
