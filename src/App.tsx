@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import BlogPost from './pages/BlogPost';
 import About from './pages/About';
+import CommentBox from './pages/CommentBox'
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -18,6 +19,7 @@ const App: React.FC = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/post/:id" element={<BlogPost />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/comments" element={<CommentBox />}/>
                     </Routes>
                 </main>
                 <Footer />

@@ -78,6 +78,9 @@ const Home: React.FC = () => {
                     <Link to="/about" className="hidden sm:flex items-center gap-1 text-[13px] text-black/40 hover:text-black transition-colors">
                         About <ArrowUpRight size={14} />
                     </Link>
+                    <Link to="/comments" className="hidden sm:flex items-center gap-1 text-[13px] text-black/40 hover:text-black transition-colors">
+                        Comments <ArrowUpRight size={14} />
+                    </Link>
                 </div>
             </nav>
 
