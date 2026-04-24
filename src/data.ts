@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260424,
+        title: "红黑树逻辑分析以及Java实现",
+        excerpt: "在Gemini帮助之下完成的有关于RBT数据结构的简要分析以及Java实践",
+        date: "2026-04-24",
+        category: "技术探索",
+        tags: ["算法", "RBT"],
+        readTime: "5min",
+        type: 'pdf',
+        fileUrl: '/papers/RBT.pdf'
+    },
+    {
         id: 20260319,
         title: "滑动窗口",
         excerpt: "使用LeetCode370来探讨滑动窗口方法设计的核心逻辑以及一般使用方法",
