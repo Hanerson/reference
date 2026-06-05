@@ -2,6 +2,17 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260605,
+        title: "内聚/耦合原始代码参考",
+        excerpt: "reference",
+        date: "2026-06-05",
+        category: "技术探索",
+        tags: [],
+        readTime: "5min",
+        type: 'pdf',
+        fileUrl: '/papers/rawReferences_耦合&内聚.pdf'
+    },
+    {
         id: 20260424,
         title: "红黑树逻辑分析以及Java实现",
         excerpt: "在Gemini帮助之下完成的有关于RBT数据结构的简要分析以及Java实践",
