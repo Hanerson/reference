@@ -6,9 +6,7 @@ export const posts: Post[] = [
         title: "内聚/耦合原始代码参考",
         excerpt: "reference",
         date: "2026-06-05",
-        category: "技术探索",
         tags: [],
-        readTime: "5min",
         type: 'pdf',
         fileUrl: '/papers/rawReferences_耦合&内聚.pdf'
     },
@@ -17,9 +15,7 @@ export const posts: Post[] = [
         title: "红黑树逻辑分析以及Java实现",
         excerpt: "在Gemini帮助之下完成的有关于RBT数据结构的简要分析以及Java实践",
         date: "2026-04-24",
-        category: "技术探索",
         tags: ["算法", "RBT"],
-        readTime: "5min",
         type: 'pdf',
         fileUrl: '/papers/RBT.pdf'
     },
@@ -28,9 +24,7 @@ export const posts: Post[] = [
         title: "滑动窗口",
         excerpt: "使用LeetCode370来探讨滑动窗口方法设计的核心逻辑以及一般使用方法",
         date: "2026-03-19",
-        category: "技术探索",
         tags: ["算法", "滑动窗口"],
-        readTime: "5min",
         type: 'pdf',
         fileUrl: '/papers/滑动窗口.pdf'
     },
@@ -39,9 +33,7 @@ export const posts: Post[] = [
         title: "前缀和以及差分",
         excerpt: "详细分析前缀和数组以及差分数组的真正含义以及实际用途",
         date: "2026-03-10",
-        category: "技术探索",
         tags: ["算法", "前缀和", "差分"],
-        readTime: "10min",
         type: 'pdf',
         fileUrl: '/papers/前缀和以及差分.pdf'
     },
@@ -50,9 +42,7 @@ export const posts: Post[] = [
         title: "二分查找在实际解题当中的运用",
         excerpt: "在各类隐含单调元素范围的题目当中合理的使用二分查找提高算法效率",
         date: "2026-03-09",
-        category: "技术探索",
         tags: ["算法", "二分"],
-        readTime: "8min",
         type: 'pdf',
         fileUrl: '/papers/BinarySearch 在实际解题当中的运用.pdf'
     },
@@ -61,8 +51,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "BusinessIntel",
         date: "2026-03-09",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["商业智能"],
         children: [
             ...[
@@ -82,9 +70,7 @@ export const posts: Post[] = [
                 title: item.title,
                 excerpt: "",
                 date: "2026-03-09",
-                category: "课程资料" as const,
                 tags: ["商业智能", "数据仓库", "数据挖掘"],
-                readTime: "15min",
                 type: 'pdf' as const,
                 fileUrl: `/papers/BusinessIntel/${item.file}`
             }))
@@ -95,8 +81,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "operating system 复习讲义",
         date: "2026-03-02",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["操作系统", "CS基础"],
         children: [
             ...[
@@ -123,9 +107,7 @@ export const posts: Post[] = [
                 title: item.title,
                 excerpt: "",
                 date: "2026-03-02",
-                category: "课程资料" as const,
                 tags: ["讲义", "操作系统"],
-                readTime: "5min",
                 type: 'pdf' as const,
                 fileUrl: `/papers/OS/${item.file}`
             }))
@@ -136,9 +118,7 @@ export const posts: Post[] = [
         title: "libGDX的设计哲学以及软件工程实践",
         excerpt: "记录第一次与游戏引擎——libGDX的通力合作",
         date: "2026-02-02",
-        category: "技术探索",
         tags: ["方法", "框架"],
-        readTime: "10min",
         type: 'pdf',
         fileUrl: '/papers/libGDX的开发哲学与项目实践.pdf'
     },
@@ -147,9 +127,7 @@ export const posts: Post[] = [
         title: "如何学习各种大型框架？—— FUP(finite understanding protocol)",
         excerpt: "希望通过“有限理解协议”来建立一种可以在有限窗口期当中高效学习各种大型框架（如libGDX, React, Spring）的方法论",
         date: "2026-01-27",
-        category: "日常思考",
         tags: ["方法", "框架"],
-        readTime: "8min",
         type: 'pdf',
         fileUrl: '/papers/一种个人学习方法论——FUP.pdf'
     },
@@ -158,9 +136,7 @@ export const posts: Post[] = [
         title: "从LeetCode1219与3459看：什么时候dp成立？",
         excerpt: "通过对于力扣1219和3459的详细分析，探讨什么时候dp是合适的，什么时候dp不合适",
         date: "2026-01-23",
-        category: "技术探索",
         tags: ["算法", "Java"],
-        readTime: "15min",
         type: 'pdf',
         fileUrl: '/papers/dp什么时候成立.pdf'
     },
@@ -169,9 +145,7 @@ export const posts: Post[] = [
         title: "图论算法Kruskal、Prim与Dijkstra详细解析",
         excerpt: "对于Kruskal、Prim与Dijkstra三大图论算法的详细解释，附带Java实现",
         date: "2026-01-10",
-        category: "技术探索",
         tags: ["算法", "图论", "Java", "原创"],
-        readTime: "15min",
         type: 'pdf',
         fileUrl: '/papers/图论三算法.pdf'
     },
@@ -180,9 +154,7 @@ export const posts: Post[] = [
         title: "基于Java实现的各类排序算法详解",
         excerpt: "详细解释了各种排序算法的运行逻辑以及复杂度分析",
         date: "2026-01-09",
-        category: "技术探索",
         tags: ["算法", "排序", "Java", "原创"],
-        readTime: "15min",
         type: 'pdf',
         fileUrl: '/papers/基于代码实现的排序算法深入讲解.pdf'
     },
@@ -193,8 +165,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "数据结构与算法往年卷复习参考",
         date: "2026-01-02",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["算法", "往年卷"],
         children: [
             {
@@ -202,10 +172,8 @@ export const posts: Post[] = [
                 title: "数据结构与算法2023",
                 excerpt: "2023年往年卷（2021级前辈试卷）",
                 date: "2026-01-08",
-                category: "课程资料",
-                tags: ["往年卷", "算法"],
-                readTime: "8min",
-                type: 'pdf',
+                        tags: ["往年卷", "算法"],
+                        type: 'pdf',
                 fileUrl: '/papers/DStructure_Review/2023.pdf'
             },
             {
@@ -213,10 +181,8 @@ export const posts: Post[] = [
                 title: "数据结构与算法2021",
                 excerpt: "2021年往年卷",
                 date: "2026-01-08",
-                category: "课程资料",
-                tags: ["往年卷", "算法"],
-                readTime: "8min",
-                type: 'pdf',
+                        tags: ["往年卷", "算法"],
+                        type: 'pdf',
                 fileUrl: '/papers/DStructure_Review/2021.pdf'
             },
         ]
@@ -228,9 +194,7 @@ export const posts: Post[] = [
         title: "南京大学2025年毛泽东思想概述重点问题整理",
         excerpt: "课程梳理以及问题概述",
         date: "2026-01-05",
-        category: "课程资料",
         tags: ["南软", "通识", "复习资料"],
-        readTime: "28min",
         type: 'pdf',
         fileUrl: '/papers/maoTheory.pdf'
     },
@@ -239,9 +203,7 @@ export const posts: Post[] = [
         title: "南京大学2025年习概重点问题整理",
         excerpt: "重点理论整理",
         date: "2026-01-05",
-        category: "课程资料",
         tags: ["共创", "南软", "通识"],
-        readTime: "28min",
         type: 'pdf',
         fileUrl: '/papers/xiTheory.pdf'
     },
@@ -251,8 +213,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "计算机组成与体系结构复习讲义",
         date: "2026-01-02",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["计组", "CS基础"],
         children: [
             {
@@ -260,17 +220,14 @@ export const posts: Post[] = [
                 type: 'folder',
                 title: "COA 相关作业整合",
                 date: "2026-01-07",
-                category: "课程资料",
-                readTime: "FOLDER",
-                tags: ["作业"],
+                                tags: ["作业"],
                 children: Array.from({ length: 10 }, (_, i) => ({
                     id: 8009901 + i,
                     title: `COA 作业 ${i + 1}`,
                     excerpt: ``,
                     date: "2026-01-02",
-                    category: "课程资料" as const,
-                    tags: ["作业", "计组"],
-                    readTime: "5min",
+                        tags: ["作业", "计组"],
+                    
                     type: "pdf" as const,
                     fileUrl: `/papers/COA/COA_homeworks/HW_${i + 1}.pdf`
                 }))
@@ -299,9 +256,8 @@ export const posts: Post[] = [
                 title: item.title,
                 excerpt: "",
                 date: "2026-01-02",
-                category: "课程资料" as const,
                 tags: ["讲义", "计组"],
-                readTime: "5min",
+                
                 type: 'pdf' as const,
                 fileUrl: `/papers/COA/${item.file}`
             }))
@@ -314,8 +270,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "数据管理基础",
         date: "2026-01-01",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["数据库"],
         children: [
             {
@@ -323,26 +277,24 @@ export const posts: Post[] = [
                 type: "folder",
                 title: "重点章节",
                 date: "2026-01-04",
-                category: "课程资料",
-                readTime: "FOLDER",
-                tags: ["重点章节"],
+                                tags: ["重点章节"],
                 children: [
-                    { id: 7009901, title: "视图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/视图.pdf', readTime: "20min" },
-                    { id: 7009902, title: "关系范式", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/关系范式.pdf', readTime: "20min" },
-                    { id: 7009903, title: "存取控制", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/存取控制.pdf', readTime: "20min" },
-                    { id: 7009904, title: "并发", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/并发.pdf', readTime: "20min" },
-                    { id: 7009905, title: "概念模型以及ER图", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/概念模型以及ER图.pdf', readTime: "20min" },
-                    { id: 7009906, title: "数据库故障相关", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/数据库故障相关.pdf', readTime: "20min" },
-                    { id: 7009907, title: "断言与触发器", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/断言与触发器.pdf', readTime: "20min" },
-                    { id: 7009908, title: "NoSQL与仲裁", date: "2026-01-04", category: "课程资料", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/NoSQL与仲裁.pdf', readTime: "20min" },
+                    { id: 7009901, title: "视图", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/视图.pdf' },
+                    { id: 7009902, title: "关系范式", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/关系范式.pdf' },
+                    { id: 7009903, title: "存取控制", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/存取控制.pdf' },
+                    { id: 7009904, title: "并发", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/并发.pdf' },
+                    { id: 7009905, title: "概念模型以及ER图", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/概念模型以及ER图.pdf' },
+                    { id: 7009906, title: "数据库故障相关", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/数据库故障相关.pdf' },
+                    { id: 7009907, title: "断言与触发器", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/断言与触发器.pdf' },
+                    { id: 7009908, title: "NoSQL与仲裁", date: "2026-01-04", tags: ["数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/pointChapters/NoSQL与仲裁.pdf' },
                 ]
             },
-            { id: 70010, title: "数据库作业整合", date: "2026-01-04", category: "课程资料", tags: ["作业", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/作业.pdf', readTime: "20min" },
-            { id: 70009, title: "数据库个人笔记", date: "2026-01-04", category: "课程资料", tags: ["笔记", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/笔记.pdf', readTime: "20min" },
-            { id: 70008, title: "数据库课件章节导航", date: "2026-01-04", category: "课程资料", tags: ["导航", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/导航.pdf', readTime: "20min" },
-            { id: 70007, title: "数据库基础2023往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2023.pdf', readTime: "5min" },
-            { id: 70006, title: "数据库基础2020往年卷", date: "2026-01-03", category: "课程资料", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2020.pdf', readTime: "5min" },
-            { id: 70005, title: "数据库基础复习总指南", date: "2026-01-01", category: "课程资料", tags: ["复习指南", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/复习指南.pdf', readTime: "5min" }
+            { id: 70010, title: "数据库作业整合", date: "2026-01-04", tags: ["作业", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/作业.pdf' },
+            { id: 70009, title: "数据库个人笔记", date: "2026-01-04", tags: ["笔记", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/笔记.pdf' },
+            { id: 70008, title: "数据库课件章节导航", date: "2026-01-04", tags: ["导航", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/导航.pdf' },
+            { id: 70007, title: "数据库基础2023往年卷", date: "2026-01-03", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2023.pdf' },
+            { id: 70006, title: "数据库基础2020往年卷", date: "2026-01-03", tags: ["往年卷", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/2020.pdf' },
+            { id: 70005, title: "数据库基础复习总指南", date: "2026-01-01", tags: ["复习指南", "数据库"], type: 'pdf', fileUrl: '/papers/数据库复习相关/复习指南.pdf' }
         ]
     },
     {
@@ -350,9 +302,8 @@ export const posts: Post[] = [
         title: "我的2025年年度总结",
         excerpt: "“在奋勇向前的路上，也别忘了停下来反思自己走过的路2025”",
         date: "2026-01-01",
-        category: "日常思考",
         tags: ["年度总结"],
-        readTime: "5min",
+        
         type: 'pdf',
         fileUrl: '/papers/2025Conclusion.pdf'
     },
@@ -361,9 +312,7 @@ export const posts: Post[] = [
         title: "Cream -- 一种反向验证的代码生成检查框架",
         excerpt: "通过“搜索相似” + “代码生成”提高 viber_coding 可行性",
         date: "2025-12-09",
-        category: "技术探索",
         tags: ["AI", "原创", "代码生成"],
-        readTime: "28min",
         type: 'pdf',
         fileUrl: '/papers/Cream.pdf'
     },
@@ -372,8 +321,6 @@ export const posts: Post[] = [
         type: 'folder',
         title: "计算系统基础",
         date: "2025-06-07",
-        category: "课程资料",
-        readTime: "FOLDER",
         tags: ["计算系统", "CS基础", "计算机组成原理"],
         children: [
             ...[
@@ -390,9 +337,8 @@ export const posts: Post[] = [
                 title: item.title,
                 excerpt: "",
                 date: "2025-06-07",
-                category: "课程资料" as const,
                 tags: ["讲义", "计算系统基础"],
-                readTime: "5min",
+                
                 type: 'pdf' as const,
                 fileUrl: `/papers/计算系统基础/${item.file}`
             }))

@@ -6,9 +6,8 @@ import remarkGfm from 'remark-gfm';
 import { posts } from '../data';
 import { Post } from '../types';
 import { ArrowLeft } from 'lucide-react';
-import { motion } from 'framer-motion';
 import PDFViewer from '../components/PDFViewer';
-import 'highlight.js/styles/github-dark.css';
+import 'highlight.js/styles/github.css';
 
 const BlogPost: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -64,125 +63,75 @@ const BlogPost: React.FC = () => {
 
     if (!post) {
         return (
-            <div className="min-h-screen bg-[#f8f8f7] flex items-center justify-center font-serif italic text-black/20">
-                Entry not found.
+            <div className="min-h-screen bg-white flex items-center justify-center text-gray-400">
+                内容未找到。
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[#f8f8f7] text-[#1a1a1a] selection:bg-black selection:text-white">
+        <div className="min-h-screen bg-white">
+            {/* 固定顶部区域 */}
+            <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
+                {/* 顶栏导航 */}
+                <nav className="w-full px-6 py-2">
+                    <div className="max-w-4xl mx-auto flex items-center justify-between">
+                        <Link to="/" className="flex items-center gap-2 text-xs text-gray-600 hover:text-blue-600 transition-colors">
+                            <ArrowLeft size={14} />
+                            返回列表
+                        </Link>
+                        {isPDF && (
+                            <button
+                                onClick={handleDownload}
+                                className="text-xs px-3 py-1 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition-colors"
+                            >
+                                {isDownloading ? '下载中...' : '下载 PDF'}
+                            </button>
+                        )}
+                    </div>
+                </nav>
 
-            <nav className="fixed top-0 w-full h-20 flex items-center justify-between px-8 md:px-12 z-50 bg-[#f8f8f7]/80 backdrop-blur-md border-b border-black/[0.03]">
-                <Link to="/" className="group flex items-center gap-2 text-[13px] font-medium uppercase tracking-tighter">
-                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                    Back to Index
-                </Link>
-                <div className="flex items-center gap-6">
-                    {isPDF && (
-                        <button
-                            onClick={handleDownload}
-                            className="text-[12px] font-bold uppercase tracking-widest text-orange-600 hover:opacity-60 transition-opacity"
-                        >
-                            {isDownloading ? 'Downloading...' : 'Get PDF'}
-                        </button>
+                {/* 文章标题区域 */}
+                <div className="max-w-4xl mx-auto px-6 pb-3">
+                    <h2 className="text-2xl font-semibold text-gray-900 leading-tight">
+                        {post.title}
+                    </h2>
+                    {post.excerpt && (
+                        <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                            {post.excerpt}
+                        </p>
                     )}
                 </div>
-            </nav>
+            </div>
 
-            <main className="pt-32 pb-32">
-                <div className="max-w-screen-xl mx-auto px-8 md:px-12">
-
-                    {/* 非对称布局 Header */}
-                    <header className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
-                        <div className="lg:col-span-8">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                <div className="flex items-center gap-4 mb-6">
-                                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600/80">
-                                        {post.category}
-                                    </span>
-                                    <div className="w-8 h-[1px] bg-black/10" />
-                                    <span className="text-[11px] font-medium text-black/30 uppercase tracking-widest">
-                                        Ref_{post.id}
-                                    </span>
-                                </div>
-                                <h1 className="text-4xl md:text-4xl font-normal leading-[1.1] tracking-tight mb-8">
-                                    {post.title}
-                                </h1>
-                            </motion.div>
-                        </div>
-
-                        <div className="lg:col-span-4 flex flex-col justify-end border-l border-black/5 pl-8 py-2">
-                            <div className="space-y-4 text-[13px]">
-                                <div className="flex justify-between items-center text-black/40 italic font-serif">
-                                    <span>Published</span>
-                                    <span className="font-sans not-italic text-black/80">{post.date.replace(/-/g, '.')}</span>
-                                </div>
-                                <div className="flex justify-between items-center text-black/40 italic font-serif">
-                                    <span>Reading Time</span>
-                                    <span className="font-sans not-italic text-black/80">{post.readTime}</span>
-                                </div>
-                                <div className="pt-4 border-t border-black/5">
-                                    <p className="text-black/50 leading-relaxed italic">
-                                        {post.excerpt || "A thoughtful exploration of concepts and execution."}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-                        <div className={`lg:col-span-10 ${isPDF ? 'lg:col-span-11' : 'lg:col-span-8'}`}>
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                {loading ? (
-                                    <div className="h-64 flex items-center justify-center italic text-black/20 font-serif">
-                                        Gathering thoughts...
-                                    </div>
-                                ) : isPDF ? (
-                                    <div className="bg-white p-2 md:p-8 shadow-[0_40px_100px_rgba(0,0,0,0.05)] rounded-sm">
-                                        <PDFViewer fileUrl={post.fileUrl || ''} />
-                                    </div>
-                                ) : (
-                                    <div className="prose prose-neutral prose-lg max-w-none
-                                        prose-headings:font-normal prose-headings:tracking-tight
-                                        prose-p:leading-relaxed prose-p:text-black/80
-                                        prose-blockquote:border-l-orange-500 prose-blockquote:font-serif prose-blockquote:italic
-                                        prose-pre:bg-[#1a1a1a] prose-pre:rounded-sm
-                                        prose-code:text-orange-600 prose-code:font-medium
-                                        prose-img:rounded-sm prose-img:shadow-2xl">
-                                        <ReactMarkdown rehypePlugins={[rehypeHighlight]} remarkPlugins={[remarkGfm]}>
-                                            {content}
-                                        </ReactMarkdown>
-                                    </div>
-                                )}
-                            </motion.div>
-                        </div>
+            {/* 主内容 */}
+            <main className="max-w-4xl mx-auto px-6 py-12">
+                {/* 内容区域 */}
+                {loading ? (
+                    <div className="py-20 text-center">
+                        <div className="inline-block animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent"></div>
+                        <p className="text-sm text-gray-400 mt-4">加载中...</p>
                     </div>
-                </div>
+                ) : isPDF ? (
+                    <div className="bg-white">
+                        <PDFViewer fileUrl={post.fileUrl || ''} />
+                    </div>
+                ) : (
+                    <article className="prose prose-slate max-w-none
+                        prose-headings:font-semibold prose-headings:text-gray-900
+                        prose-p:text-gray-700 prose-p:leading-relaxed
+                        prose-pre:bg-gray-50 prose-pre:border prose-pre:border-gray-200
+                        prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                        prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+                        prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:not-italic
+                        prose-img:rounded-lg prose-img:shadow-sm
+                        prose-hr:border-gray-200">
+                        <ReactMarkdown rehypePlugins={[rehypeHighlight]} remarkPlugins={[remarkGfm]}>
+                            {content}
+                        </ReactMarkdown>
+                    </article>
+                )}
             </main>
-
-            <footer className="py-20 border-t border-black/5 mx-8 md:mx-12">
-                <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div className="w-2 h-2 rounded-full bg-orange-500" />
-                        <span className="text-[11px] font-bold tracking-[0.3em] uppercase opacity-30 text-black">
-                            End of Entry
-                        </span>
-                    </div>
-                    <Link to="/" className="text-[13px] italic font-serif hover:underline">
-                        Back to the library
-                    </Link>
-                </div>
-            </footer>
         </div>
     );
 };
