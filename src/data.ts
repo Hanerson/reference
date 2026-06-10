@@ -2,6 +2,15 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260610,
+        title: "编译原理复习原始笔记参考",
+        excerpt: "reference",
+        date: "2026-06-10",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/编译原理.pdf'
+    },
+    {
         id: 20260605,
         title: "内聚/耦合原始代码参考",
         excerpt: "reference",
