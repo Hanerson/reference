@@ -1,6 +1,25 @@
 import type { Post } from './types';
 
 export const posts: Post[] = [
+
+    {
+        id: 2026061702,
+        title: "2026高级算法复习",
+        excerpt: "reference",
+        date: "2026-06-17",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/HLO/2026高级算法复习.pdf'
+    },
+    {
+        id: 2026061701,
+        title: "动态规划（Dynamic Programming）复习",
+        excerpt: "reference",
+        date: "2026-06-17",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/HLO/DP_review.pdf'
+    },
     {
         id: 20260610,
         title: "编译原理复习原始笔记参考",
