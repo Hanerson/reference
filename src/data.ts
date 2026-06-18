@@ -1,7 +1,15 @@
 import type { Post } from './types';
 
 export const posts: Post[] = [
-
+    {
+        id: 2026061801,
+        title: "软件工程与计算II期末复习提纲",
+        excerpt: "reference",
+        date: "2026-06-18",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/SEII复习提纲.pdf'
+    },
     {
         id: 2026061702,
         title: "2026高级算法复习",
