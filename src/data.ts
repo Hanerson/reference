@@ -334,16 +334,6 @@ export const posts: Post[] = [
         ]
     },
     {
-        id: 20260101,
-        title: "我的2025年年度总结",
-        excerpt: "“在奋勇向前的路上，也别忘了停下来反思自己走过的路2025”",
-        date: "2026-01-01",
-        tags: ["年度总结"],
-        
-        type: 'pdf',
-        fileUrl: '/papers/2025Conclusion.pdf'
-    },
-    {
         id: 20251209,
         title: "Cream -- 一种反向验证的代码生成检查框架",
         excerpt: "通过“搜索相似” + “代码生成”提高 viber_coding 可行性",
