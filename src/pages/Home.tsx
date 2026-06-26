@@ -48,9 +48,6 @@ const Home: React.FC = () => {
                                 className="bg-gray-50 border-none rounded-md py-1.5 pl-7 pr-3 text-xs outline-none w-40 focus:w-56 transition-all placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
-                        <Link to="/about" className="text-xs text-gray-500 hover:text-black transition-colors">
-                            About
-                        </Link>
                     </div>
                 </div>
             </nav>
