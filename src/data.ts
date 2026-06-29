@@ -2,6 +2,15 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 2026062901,
+        title: "操作系统复习期末复习提纲",
+        excerpt: "reference",
+        date: "2026-06-29",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/操作系统复习总览.pdf'
+    },
+    {
         id: 2026061801,
         title: "软件工程与计算II期末复习提纲",
         excerpt: "reference",
