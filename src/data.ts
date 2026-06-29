@@ -2,6 +2,15 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 2026062902,
+        title: "管程和PV操作",
+        excerpt: "我真的不想再复习了，我求求了赶快考完试吧",
+        date: "2026-06-29",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/管程和PV操作.pdf'
+    },
+    {
         id: 2026062901,
         title: "操作系统复习期末复习提纲",
         excerpt: "reference",
