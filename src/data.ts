@@ -2,6 +2,15 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 20260818,
+        title: "md2pdf效果展示",
+        excerpt: "reference of the tool:md2pdf",
+        date: "2026-08-18",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/papers/md2pdf.pdf'
+    },
+    {
         id: 2026062902,
         title: "管程和PV操作",
         excerpt: "我真的不想再复习了，我求求了赶快考完试吧",
