@@ -2,6 +2,24 @@ import type { Post } from './types';
 
 export const posts: Post[] = [
     {
+        id: 2026082402,
+        title: "软件测试",
+        excerpt: "通过DeepSeek Harness进行整理的课程大致流程",
+        date: "2026-08-24",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/2026/over.pdf'
+    },
+    {
+        id: 2026082401,
+        title: "嵌入式系统概论",
+        excerpt: "通过DeepSeek Harness进行整理的课程大致流程",
+        date: "2026-08-24",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/2026/withinOperation.pdf'
+    },
+    {
         id: 20260818,
         title: "md2pdf效果展示",
         excerpt: "reference of the tool:md2pdf",
