@@ -1,6 +1,15 @@
 import type { Post } from './types';
 
 export const posts: Post[] = [
+{
+        id: 20260825,
+        title: "人机交互",
+        excerpt: "通过DeepSeek Harness进行整理的课程大致流程",
+        date: "2026-08-25",
+        tags: [],
+        type: 'pdf',
+        fileUrl: '/2026/HCI.pdf'
+    },
     {
         id: 2026082402,
         title: "软件测试",
