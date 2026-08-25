@@ -1,7 +1,7 @@
 import type { Post } from './types';
 
 export const posts: Post[] = [
-{
+    {
         id: 20260825,
         title: "人机交互",
         excerpt: "通过DeepSeek Harness进行整理的课程大致流程",
