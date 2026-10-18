@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import BlogPost from './pages/BlogPost';
+import BrowserStarter from './pages/BrowserStarter';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/post/:id" element={<BlogPost />} />
+                        <Route path="/browserStarter" element={<BrowserStarter />} />
                     </Routes>
                 </main>
             </div>

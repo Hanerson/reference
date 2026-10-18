@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { posts } from '../data';
 import { Post } from '../types';
-import { Search } from 'lucide-react';
+import { Search, Compass } from 'lucide-react';
 import FileNode from './FileNode';
 
 const Home: React.FC = () => {
@@ -48,6 +48,14 @@ const Home: React.FC = () => {
                                 className="bg-gray-50 border-none rounded-md py-1.5 pl-7 pr-3 text-xs outline-none w-40 focus:w-56 transition-all placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
                             />
                         </div>
+                        <Link
+                            to="/browserStarter"
+                            title="起始页"
+                            aria-label="起始页"
+                            className="text-gray-500 transition-colors hover:text-gray-900"
+                        >
+                            <Compass size={17} />
+                        </Link>
                     </div>
                 </div>
             </nav>
