@@ -41,7 +41,7 @@ const savePref = (key: string, value: string): void => {
 /** 从完整 url 取 host 用于展示，解析失败时原样返回 */
 const displayHost = (url: string): string => {
     try {
-        return new URL(url).host;
+        return new URL(url).host.replace(/^www\./, '');
     } catch {
         return url;
     }
@@ -123,7 +123,7 @@ const BrowserStarter: React.FC = () => {
                 {settingsOpen && (
                     <div
                         onClick={(e) => e.stopPropagation()}
-                        className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-gray-200 bg-white p-3.5 shadow-md dark:border-gray-800 dark:bg-gray-900"
+                        className="absolute right-0 top-full z-10 mt-2 w-48 rounded-xl border border-gray-200 bg-white p-3.5 shadow-md dark:border-gray-800 dark:bg-gray-900"
                     >
                         <p className="mb-1.5 text-xs text-gray-400 dark:text-gray-500">搜索引擎</p>
                         <div className="mb-3 flex gap-3 text-sm">
