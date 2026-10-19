@@ -18,6 +18,7 @@ export const sites: Site[] = [
     { name: '力扣', url: 'https://leetcode.cn' },
     { name: 'V2EX', url: 'https://www.v2ex.com' },
     { name: '少数派', url: 'https://sspai.com' },
+    { name: 'hanerson brand', url: 'https://blog.hanerson.com' },
 ];
 
 export const engines: Engine[] = [
